@@ -10,7 +10,7 @@
 
   <div class="field">
     <%= f.label :role %><br />
-    <%= select_tag(:role, options_for_select([['User', 'user'], ['Trainer', 'trainer']])) %>
+    <%= f.select :role, options_for_select([['User', 'user'], ['Trainer', 'trainer']]) %>
   </div>
 
   <div class="field">
