@@ -1,7 +1,38 @@
-<h3><%= @chat.sender %></h3>
-<h3><%= @chat.receiver %></h3>
-<!--
-<% @chat.messages.each do |m| %>
-<p><%= m.text %></p>
-<% end %>
-->
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+
+<div class="container">
+        <div class="message-wrap col-lg-8">
+            <div class="msg-wrap">
+                <div class="media msg">
+                <% @chat.messages.each do |m| %>
+                <div class="media msg">
+
+                    <div class="media-body">
+                        <small class="pull-right time"><i class="fa fa-clock-o"></i> <%= m.created_at %></small>
+                        <h5 class="media-heading"><%= m.author %></h5>
+
+                        <small class="col-lg-10"><%= m.text %></small>
+                    </div>
+                </div>
+                <% end %>
+
+            </div>
+
+            <div class="send-wrap ">
+              <%= form_for @message, url: url_for(controller: 'messages', action: 'create') do |f| %>
+                  <div class="field">
+                    <%= f.text_field :text, autofocus: true, class: "form-control send-message", placeholder: "Write a reply...", rows: "3" %>
+                  </div>
+              
+            </div>
+            <div class="btn-panel">
+                  <div class="actions">
+                    <%= f.submit "Send", class: "col-lg-4 text-right btn send-message-btn pull-right", role: "button"%>
+                  </div>
+            </div>
+            <%= f.hidden_field :chat_id, value: @chat.id %>
+            <%= f.hidden_field :author, value: current_user.username %>
+            <% end %>
+        </div>
+    </div>
+</div>
