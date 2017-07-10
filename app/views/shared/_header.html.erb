@@ -18,7 +18,7 @@
         </li>
         <li>
           <% if user_signed_in? %>
-            <a href="/user/chats">Chats</a>
+            <a href="/chats">Chats</a>
           <% else %>
             <a href="<%= new_user_session_url %>">Sign In</a>
           <% end %>

@@ -1,0 +1,28 @@
+
+<div class="container">
+
+  <div class="row">
+    <div class="col-lg-12 text-center">
+      <h2>Sign up</h2>
+
+<%= form_for @chat, url: {action: "create"} do |f| %>
+  
+  <div class="field">
+    <%= f.label :sender %><br />
+    <%= f.select :sender, options_for_select([['Myself', current_user.username]]) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :receiver %><br />
+    <%= f.text_field :receiver, autofocus: true %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Create Chat" %>
+  </div>
+  <p class="error" style="color: red"><%= @chaterror %></p>
+<% end %>
+    </div>
+  </div>
+
+</div>
