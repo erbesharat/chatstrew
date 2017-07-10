@@ -23,15 +23,14 @@
                   <div class="field">
                     <%= f.text_field :text, autofocus: true, class: "form-control send-message", placeholder: "Write a reply...", rows: "3" %>
                   </div>
-              
+            <%= f.hidden_field :chat_id, value: @chat.id %>
+            <%= f.hidden_field :author, value: current_user.username %>
             </div>
             <div class="btn-panel">
                   <div class="actions">
                     <%= f.submit "Send", class: "col-lg-4 text-right btn send-message-btn pull-right", role: "button"%>
                   </div>
             </div>
-            <%= f.hidden_field :chat_id, value: @chat.id %>
-            <%= f.hidden_field :author, value: current_user.username %>
             <% end %>
         </div>
     </div>

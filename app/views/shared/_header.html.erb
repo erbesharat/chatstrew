@@ -14,20 +14,20 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li>
-          <a href="<%= root_url %>">Home</a>
+          <%= link_to "Home", root_url %>
         </li>
         <li>
           <% if user_signed_in? %>
-            <a href="/chats">Chats</a>
+            <%= link_to "Chats", chats_url %>
           <% else %>
-            <a href="<%= new_user_session_url %>">Sign In</a>
+            <%= link_to "Sign In", new_user_session_url %>
           <% end %>
         </li>
         <li>
           <% if user_signed_in? %>
-            <a href="<%= destroy_user_session_url %>">Sign Out</a>
+            <%= link_to "Sign Out", destroy_user_session_path, :method => :delete %>
           <% else %>
-            <a href="<%= new_user_registration_url %>">Sign Up</a>
+            <%= link_to "Sign Up", new_user_registration_url %>
           <% end %>
         </li>
       </ul>

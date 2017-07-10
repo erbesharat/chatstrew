@@ -1,5 +1,17 @@
-<% @chats.each do |c| %>
-<h3><%= c.sender %></h3>
-<h3><%= c.receiver %></h3>
-<hr>
-<% end %>
+
+<div class="container">
+
+  <div class="row">
+    <div class="col-lg-12 text-center">
+      <% @chats.each do |c| %>
+        <div>
+          <h3>From: <%= c.sender %></h3>
+          <h3>To: <%= c.receiver %></h3>
+          <%= link_to "Chat", c %>
+        </div>
+        <hr>
+      <% end %>
+    </div>
+  </div>
+
+</div>
