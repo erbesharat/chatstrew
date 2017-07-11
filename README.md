@@ -21,3 +21,9 @@ Then run the app in a local server:
 ```
 $ rails server
 ```
+
+## To-do List
+
+- [ ] Improve UI/UX
+- [ ] Write comments
+- [ ] Optimize
